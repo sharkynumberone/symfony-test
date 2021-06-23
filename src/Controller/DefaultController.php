@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends AbstractController
 {
     const TABLE_HEADERS = ['id', 'url', 'request', 'response', 'response_code', 'ip', 'date'];
+    
     public function index()
     {
         return $this->json(['result' => random_int(1, 1000000)]);
