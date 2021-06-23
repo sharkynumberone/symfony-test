@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends AbstractController
 {
+    const TABLE_HEADERS = ['id', 'url', 'request', 'response', 'response_code', 'ip', 'date'];
     public function index()
     {
         return $this->json(['result' => random_int(1, 1000000)]);
@@ -26,7 +27,7 @@ class DefaultController extends AbstractController
 
         return $this->render('list.html.twig', [
             'logs' => $logs,
-            'headers' => ['id', 'url', 'request', 'response', 'response_code', 'ip', 'date'],
+            'headers' => self::TABLE_HEADERS,
             'ip' => $request->get('ip') ?? ''
         ]);
     }
